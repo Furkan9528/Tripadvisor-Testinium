@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM node:23-slim
 
 # Sistem bağımlılıklarını başta kur → cache avantajı olur
 RUN apt-get update && apt-get install -y \
