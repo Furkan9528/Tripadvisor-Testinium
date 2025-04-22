@@ -1,8 +1,0 @@
-allure-playwright@latest
-@cucumber/cucumber@latest
-ts-node@latest
-playwright@latest
-typescript@latest
-@types/node@latest
-dotenv@latest
-express@latest

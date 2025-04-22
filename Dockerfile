@@ -25,14 +25,13 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Uygulama klasörünü oluştur
-RUN mkdir /app
 WORKDIR /app
 
-# Sadece package bağımlılıklarını yüklemek için önce requirements dosyasını kopyala
-COPY requirements.txt ./
+# package.json ve package-lock.json dosyalarını kopyala (cache avantajı için önce bu adım)
+COPY package*.json ./
 
-# Bağımlılıkları yükle
-RUN npm install -D $(cat requirements.txt) --force
+# Tüm bağımlılıkları kur
+RUN npm install --force
 
 # Geri kalan tüm kaynak kodunu kopyala
 COPY . .
