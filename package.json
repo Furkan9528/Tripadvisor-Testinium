@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Furkan9528/Tripadvisor-Testinium.git"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "cucumber-js test",
+    "pageObjects-chrome": "npx playwright test usePageObjects.spec.ts --project=chromium",
+    "pageObjects-firefox": "npx playwright test usePageObjects.spec.ts --project=firefox",
+    "pageObjects-all": "npm run pageObjects-chrome && npm run pageObjects-firefox"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
