@@ -1,4 +1,5 @@
-import { chromium, Browser, Page, BrowserContext } from '@playwright/test'
+import { Browser, Page, BrowserContext } from '@playwright/test'
+const { chromium } = require('playwright-extra');
 import { setWorldConstructor, World } from '@cucumber/cucumber'
 import dotenv from 'dotenv'
 

@@ -2,7 +2,7 @@ import { Given, Then, When } from "@cucumber/cucumber"
 import { expect } from '@playwright/test'
 import { CustomWorld } from "../support/world"
 
-Given('a login to Ecommerce application with and', {timeout: 20000}, async function (this: CustomWorld) {
+Given('a login to TurkishAirlines application with and', {timeout: 20000}, async function (this: CustomWorld) {
     const page = this.page;
     await page.goto(this.baseURL);
     await page.getByText('Button Triggering AJAX Request').click();
