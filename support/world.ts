@@ -1,5 +1,4 @@
-import { Browser, Page, BrowserContext } from '@playwright/test'
-const { chromium } = require('playwright-extra');
+import { chromium, Browser, Page, BrowserContext } from '@playwright/test'
 import { setWorldConstructor, World } from '@cucumber/cucumber'
 import dotenv from 'dotenv'
 
@@ -21,8 +20,23 @@ export class CustomWorld extends World {
 
   async init() {
     this.browser = await chromium.launch({ headless: false })
-    this.context = await this.browser.newContext()
+    this.context = await this.browser.newContext({
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+      locale: 'tr-TR',
+      timezoneId: 'Europe/Istanbul',
+      geolocation: { longitude: 28.9784, latitude: 41.0082 },
+      permissions: ['geolocation'],
+      javaScriptEnabled: true,
+      acceptDownloads: true,
+    });
+
     this.page = await this.context.newPage()
+
+    await this.page.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => false,
+      });
+    });
 
     // URL'i environment'a göre alıyoruz
     this.baseURL = process.env.URL || '';  // Dev ya da Prod'dan gelen URL

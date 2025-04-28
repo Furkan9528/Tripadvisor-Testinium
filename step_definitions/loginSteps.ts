@@ -4,7 +4,10 @@ import { CustomWorld } from "../support/world"
 
 Given('a login to TurkishAirlines application with and', {timeout: 20000}, async function (this: CustomWorld) {
     const page = this.page;
-    await page.goto(this.baseURL);
+    await page.goto(this.baseURL); 
+    await page.waitForTimeout(2000); 
+    await page.waitForLoadState('networkidle'); 
+
     await page.getByText('Button Triggering AJAX Request').click();
     await page.waitForTimeout(2000);
   
