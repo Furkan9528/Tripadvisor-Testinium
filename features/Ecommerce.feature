@@ -1,6 +1,7 @@
 Feature: Ecommerce validations
 
-    Scenario: Placing the Order
-        Given a login to TurkishAirlines application with and
-        When the greeter says hello
-        Then I should have heard "hello"
+    Scenario: Verify homepage is displayed correctly
+        Given I navigate to the TripAdvisor main page
+        Then I should see the TripAdvisor logo
+        And I should see the search bar
+        And I should see the Sign In button
