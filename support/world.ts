@@ -22,7 +22,6 @@ export class CustomWorld extends World {
     this.browser = await chromium.launch({ headless: false })
     this.context = await this.browser.newContext()
     this.page = await this.context.newPage()
-
     //This part allows as
     await this.page.addInitScript(() => {
       Object.defineProperty(navigator, 'webdriver', {
