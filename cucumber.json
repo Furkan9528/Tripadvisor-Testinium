@@ -2,7 +2,7 @@
     "default": {
         "formatOptions": {
             "snippetInterface": "async-await"
-        },
+          },
         "paths": [
             "features/"
         ],
