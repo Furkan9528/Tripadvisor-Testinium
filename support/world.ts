@@ -20,18 +20,10 @@ export class CustomWorld extends World {
 
   async init() {
     this.browser = await chromium.launch({ headless: false })
-    this.context = await this.browser.newContext({
-      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-      locale: 'tr-TR',
-      timezoneId: 'Europe/Istanbul',
-      geolocation: { longitude: 28.9784, latitude: 41.0082 },
-      permissions: ['geolocation'],
-      javaScriptEnabled: true,
-      acceptDownloads: true,
-    });
-
+    this.context = await this.browser.newContext()
     this.page = await this.context.newPage()
 
+    //This part allows as
     await this.page.addInitScript(() => {
       Object.defineProperty(navigator, 'webdriver', {
         get: () => false,
