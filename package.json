@@ -13,7 +13,8 @@
     "test": "cucumber-js test",
     "pageObjects-chrome": "npx playwright test usePageObjects.spec.ts --project=chromium",
     "pageObjects-firefox": "npx playwright test usePageObjects.spec.ts --project=firefox",
-    "pageObjects-all": "npm run pageObjects-chrome && npm run pageObjects-firefox"
+    "pageObjects-all": "npm run pageObjects-chrome && npm run pageObjects-firefox",
+    "posttest": "npx ts-node src/helper/report.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.14.1",
     "allure-playwright": "^3.2.1",
+    "multiple-cucumber-html-reporter": "^3.9.2",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
