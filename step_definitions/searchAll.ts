@@ -1,6 +1,8 @@
-import { Given, Then, When } from "@cucumber/cucumber"
+import { Given, setDefaultTimeout, Then, When } from "@cucumber/cucumber"
 import { expect } from '@playwright/test'
 import { CustomWorld } from "../support/world"
+
+setDefaultTimeout(60 * 1000 * 2)
 
 Given('I navigate to the TripAdvisor main page', async function (this: CustomWorld) {
     const page = this.page;
@@ -15,7 +17,6 @@ When('I should see the TripAdvisor logo', async function () {
 
 Then('I should see the search bar', async function () {
     console.log("Hello2")
-
 });
 
 Then('I should see the Sign In button', async function () {
