@@ -4,11 +4,11 @@
             "snippetInterface": "async-await"
           },
         "paths": [
-            "features/"
+            "features/**/*.feature"
         ],
         "dryRun": false,
         "require": [
-            "step_definitions/*.ts",
+            "step_definitions/**/*.ts",
             "support/*.ts"    
         ],
         "requireModule": [
