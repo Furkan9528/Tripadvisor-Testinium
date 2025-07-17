@@ -1,14 +1,15 @@
 {
     "default": {
         "formatOptions": {
-            "snippetInterface": "async-await"
+            "snippetInterface": "async-await",
+            "resultsDir": "allure-results"
           },
         "paths": [
-            "features/**/*.feature"
+            "features/"
         ],
         "dryRun": false,
         "require": [
-            "step_definitions/**/*.ts",
+            "step_definitions/*.ts",
             "support/*.ts"    
         ],
         "requireModule": [
@@ -16,8 +17,7 @@
         ],
         "format" :[
             "progress-bar",
-            "html:test-results/cucumber-report.html",
-            "json:test-results/cucumber-report.json"
+            "allure-cucumberjs/reporter"
         ]
     }
 }
