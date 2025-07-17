@@ -1,0 +1,3 @@
+To execute the test case
+$env:ENV="dev"; npm run test --project=chromium
+

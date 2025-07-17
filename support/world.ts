@@ -1,6 +1,7 @@
 import { chromium, Browser, Page, BrowserContext } from '@playwright/test'
 import { setWorldConstructor, World } from '@cucumber/cucumber'
 import dotenv from 'dotenv'
+import { HomePage } from '../pages/home.page';
 
 const environment = process.env.ENV; // Terminalden gelen ENV değeri (dev veya prod)
 
@@ -17,6 +18,7 @@ export class CustomWorld extends World {
   context!: BrowserContext
   page!: Page
   baseURL!: string;
+  homePage: HomePage;
 
   async init() {
     this.browser = await chromium.launch({ headless: false })
@@ -33,6 +35,8 @@ export class CustomWorld extends World {
     this.baseURL = process.env.URL || '';  // Dev ya da Prod'dan gelen URL
 
     console.log(`Using base URL: ${this.baseURL}`);  // Kontrol amaçlı baseURL'i yazdırıyoruz
+    this.homePage = new HomePage(this.page)
+
   }
 
   async close() {

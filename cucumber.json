@@ -1,7 +1,8 @@
 {
     "default": {
         "formatOptions": {
-            "snippetInterface": "async-await"
+            "snippetInterface": "async-await",
+            "resultsDir": "allure-results"
           },
         "paths": [
             "features/"
@@ -15,7 +16,8 @@
             "ts-node/register"
         ],
         "format" :[
-            "html:cucumber-report.html"
+            "progress-bar",
+            "allure-cucumberjs/reporter"
         ]
     }
 }
